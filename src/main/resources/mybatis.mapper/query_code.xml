@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="code">
+
+	<!-- 키워드 조회 -->
+	<select id="codeList" resultType="java.util.Map" parameterType="java.util.LinkedHashMap">
+		SELECT 
+			   	codelvlcd		--코드레벨
+			  ,	psyscode		--상위코드
+			  ,	syscode			--시스템코드
+			  ,	codenm			--코드명
+			  , codedesc		--코드설명
+			  , seq				--순번
+			  , remark			--비고
+			  , useyn			--사용여부
+			  , attrib01		--여분1
+			  , attribdesc01	--여분1설명
+			  , attrib02		--여분2
+			  , attribdesc02	--여분2설명
+			  , attrib03		--여분3
+			  , attribdesc03	--여분3설명
+			  , attrib04		--여분4
+			  , attribdesc04	--여분4설명
+			  , attrib05		--여분5
+			  , attribdesc05	--여분5설명
+			  , attrib06		--여분6
+			  , attribdesc06	--여분6설명
+			  , attrib07		--여분7
+			  , attribdesc07	--여분7설명
+			  , attrib08		--여분8
+			  , attribdesc08	--여분8설명
+			  , attrib09		--여분9
+			  , attribdesc09	--여분9설명
+			  , attrib10		--여분10
+			  , attribdesc10	--여분10설명
+			  , attrib11		--여분11
+			  , attribdesc11	--여분11설명
+			  , attrib12		--여분12
+			  , attribdesc12	--여분12설명
+			  , actflg			--상태값
+			  , regdt			--생성일자
+			  , regtmzn			--생성일시
+			  , regusrid		--생성자
+			  , chgdt			--수정일자
+			  , chgtmzn			--수정일시
+			  , chgusrid		--수정자
+		FROM code cd
+		<where>
+			<if test="codelvlcd != '' and codelvlcd != null">
+				AND cd.codelvlcd = #{codelvlcd}
+			</if>
+			<if test="codenm != '' and codenm != null">
+				AND ( 		cd.codenm like '%'||#{codenm}||'%'
+						OR	cd.codenm like UPPER('%'||#{codenm}||'%')
+					)
+			</if>
+			<if test="psyscode != '' and psyscode != null">
+				AND cd.psyscode = #{psyscode}
+			</if>
+			<if test="syscode != '' and syscode != null">
+				AND cd.syscode = #{syscode}
+			</if>
+			<if test="codedesc != '' and codedesc != null">
+				AND ( 		cd.codedesc like '%'||#{codedesc}||'%'
+						OR	UPPER(cd.codedesc) like UPPER('%'||#{codedesc}||'%')
+					)
+			</if>
+			<if test="useyn != '' and useyn != null">
+				AND cd.useyn = #{useyn}
+			</if>
+			<if test="seq != '' and seq != null">
+				AND cd.seq::VARCHAR = #{seq}
+			</if>
+			<if test="remark != '' and remark != null">
+				AND cd.remark = #{remark}
+			</if>
+			<if test="attrib01 != '' and attrib01 != null">
+				AND cd.attrib01 = #{attrib01}
+			</if>
+			<if test="attribdesc01 != '' and attribdesc01 != null">
+				AND cd.attribdesc01 = #{attribdesc01}
+			</if>
+			<if test="attrib02 != '' and attrib02 != null">
+				AND cd.attrib02 = #{attrib02}
+			</if>
+			<if test="attribdesc02 != '' and attribdesc02 != null">
+				AND cd.attribdesc02 = #{attribdesc02}
+			</if>
+			<if test="attrib03 != '' and attrib03 != null">
+				AND cd.attrib03 = #{attrib03}
+			</if>
+			<if test="attribdesc03 != '' and attribdesc03 != null">
+				AND cd.attribdesc03 = #{attribdesc03}
+			</if>
+			<if test="attrib04 != '' and attrib04 != null">
+				AND cd.attrib04 = #{attrib04}
+			</if>
+			<if test="attribdesc04 != '' and attribdesc04 != null">
+				AND cd.attribdesc04 = #{attribdesc04}
+			</if>
+			<if test="attrib05 != '' and attrib05 != null">
+				AND cd.attrib05 = #{attrib05}
+			</if>
+			<if test="attribdesc05 != '' and attribdesc05 != null">
+				AND cd.attribdesc05 = #{attribdesc05}
+			</if>
+			<if test="attrib06 != '' and attrib06 != null">
+				AND cd.attrib06 = #{attrib06}
+			</if>
+			<if test="attribdesc06 != '' and attribdesc06 != null">
+				AND cd.attribdesc06 = #{attribdesc06}
+			</if>
+			<if test="attrib07 != '' and attrib07 != null">
+				AND cd.attrib07 = #{attrib07}
+			</if>
+			<if test="attribdesc07 != '' and attribdesc07 != null">
+				AND cd.attribdesc07 = #{attribdesc07}
+			</if>
+			<if test="attrib08 != '' and attrib08 != null">
+				AND cd.attrib08 = #{attrib08}
+			</if>
+			<if test="attribdesc08 != '' and attribdesc08 != null">
+				AND cd.attribdesc08 = #{attribdesc08}
+			</if>
+			<if test="attrib09 != '' and attrib09 != null">
+				AND cd.attrib09 = #{attrib09}
+			</if>
+			<if test="attribdesc09 != '' and attribdesc09 != null">
+				AND cd.attribdesc09 = #{attribdesc09}
+			</if>
+			<if test="attrib10 != '' and attrib10 != null">
+				AND cd.attrib10 = #{attrib10}
+			</if>
+			<if test="attribdesc10 != '' and attribdesc10 != null">
+				AND cd.attribdesc10 = #{attribdesc10}
+			</if>
+			<if test="attrib11 != '' and attrib11 != null">
+				AND cd.attrib11 = #{attrib11}
+			</if>
+			<if test="attribdesc11 != '' and attribdesc11 != null">
+				AND cd.attribdesc11 = #{attribdesc11}
+			</if>
+			<if test="attrib12 != '' and attrib12 != null">
+				AND cd.attrib12 = #{attrib12}
+			</if>
+			<if test="attribdesc12 != '' and attribdesc12 != null">
+				AND cd.attribdesc12 = #{attribdesc12}
+			</if>
+			<if test="reg_dtFrom != '' and reg_dtFrom != null and reg_dtTo != '' and reg_dtTo != null">
+				AND cd.reg_dt between to_timestamp(#{reg_dtFrom}||' 00:00:00', 'yyyymmdd hh24:mi:SS') and to_timestamp(#{reg_dtTo}||' 23:59:59', 'yyyymmdd hh24:mi:SS')
+			</if>
+			<if test="update_dtFrom != '' and update_dtFrom != null and update_dtTo != '' and update_dtTo != null">
+				AND cd.chgdt between to_timestamp(#{update_dtFrom}||' 00:00:00', 'yyyymmdd hh24:mi:SS') and to_timestamp(#{update_dtTo}||' 23:59:59', 'yyyymmdd hh24:mi:SS')
+			</if>
+		</where>
+		ORDER BY seq ASC
+	</select>
+	
+</mapper>
